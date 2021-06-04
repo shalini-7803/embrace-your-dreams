@@ -1,0 +1,471 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root
+{
+    --black:#333;
+    --white:#fff;
+}
+/*body
+{
+    min-height: 150vh;
+    background: #f8f8f8;
+}*/
+header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+    transition: 0.5s;
+}
+header.sticky
+{
+    padding: 10px 100px;
+}
+.logo
+{
+    position: relative;
+    display: inline-block;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.menu
+{
+    position: relative;
+    width: 33px;
+    height: 30px;
+    background: url(menu.jpg);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: right;
+    float: right;
+    cursor: pointer;
+}
+.menu.active
+{
+    background: url(cross.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.navigaion
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999;
+    transition: 0.25s;
+    opacity: 0;
+    visibility: hidden;
+}
+.navigaion.active 
+{
+    opacity: 1;
+    visibility: visible;
+}
+.navigaion li{
+    list-style: none;
+    margin: 10px 0;
+}
+.navigaion li a
+{
+    color: #000;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    display: inline-block;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+section
+{
+    position: relative;
+    padding: 100px;
+    width: 100%;
+    min-height: 100vh;
+}
+.cover
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.banner
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner .contentBx
+{
+    position: relative;
+    z-index: 1;
+    background: var(--white);
+    padding: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.banner .contentBx h2
+{
+    font-size: 2em;
+    font-weight: 500;
+    color: var(--black);
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.banner .contentBx h4
+{
+    font-size: 2em;
+    font-weight: 300;
+    color: var(--black);
+    letter-spacing: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
+}
+.btn
+{
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    margin-top: 20px;
+    border: 2px solid black;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.25s;
+    outline: none;
+}
+.btn:hover
+{
+    color: wheat;
+    background-color: black;
+}
+.title
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.title h2
+{
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 1.4em;
+    text-transform: uppercase;
+    color: var(--black);
+}
+.title p
+{
+    margin-top: 40px;
+    max-width: 700px;
+    text-align: center;
+}
+.title h2::before
+{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 6px;
+    background: var(--black);
+}
+p
+{
+    color: var(--black);
+    font-weight: 300;
+    line-height: 22px;
+    text-align: justify;
+}
+.about .contentBx
+{
+    position: relative;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+}
+.about .contentBx .content
+{
+    position: relative;
+}
+.about .contentBx .content .imgBx
+{
+    min-height: 400px;
+}
+.about .contentBx .content .imgBx img
+{
+    width:600px;
+    height: 450px;
+}
+
+.post
+{
+    position: relative;
+}
+.post .contentBx
+{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+.post .contentBx .postcolumn
+{
+    position: relative;
+}
+.post .contentBx .postcolumn .postBox
+{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+}
+
+.post .contentBx .postcolumn .postBox .imgBx img
+{
+    height: 390px;
+    width: 430px;
+}
+
+
+.post .contentBx .postcolumn .postBox .extraheight
+{
+    height: 600px;
+} 
+.post .contentBx .postcolumn .postBox .textBx
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    transform: 0.25s;
+    opacity: 0;
+    visibility: hidden;
+}
+.post .contentBx .postcolumn .postBox .textBx h3
+{
+    font-weight: 400;
+    font-size: 1em;
+    letter-spacing: 1px;
+    color: var(--black);
+}
+.post .contentBx .postcolumn .postBox .textBx .btn
+{
+    padding: 4px 10px;
+    background: var(--black);
+    color: var(--white);
+    font-weight: 300;
+    font-size: 1em;
+}
+.post .contentBx .postcolumn .postBox:hover .textBx
+{
+    opacity: 0.9;
+    visibility: visible;
+}
+
+.mgt60
+{
+    margin-top: 60px;
+}
+
+.contact
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contact .contactform
+{
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 20px;
+}
+.contact .contactform .row
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+.contact .contactform .row2
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.contact .contactform .row input,
+.contact .contactform .row2 textarea
+{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--black);
+    outline: none;
+    background: var(--white);
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.contact .contactform .row2 textarea
+{
+    resize: none;
+    height: 150px;
+}
+::placeholder
+{
+    color: var(--black);
+}
+.contact .contactform .row2 input [type="submit"]
+{
+    background: var(--white);
+    color: var(--black);
+    border: 2px solid var(--black);
+    cursor: pointer;
+}
+.contact .contactform .row2 input [type="submit"]:hover
+{
+    background: var(--black);
+    color: var(--white);
+}
+
+
+footer
+{
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #333;
+    border-top: 1px solid rgba(0,0,0,0.5);
+}
+footer .footermenu
+{
+    display: flex;
+}
+footer .footermenu li
+{
+    list-style: none;
+}
+footer .footermenu li a
+{
+    display: inline-block;
+    text-decoration: none;
+    margin: 20px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+@media (max-width:991px)
+{
+    header
+    {
+        padding: 20px 20px;
+    }
+    header.sticky 
+    {
+        padding: 10px 20px;
+    }
+    section 
+    {
+        padding: 20px;
+    }
+    .banner .contentBx
+    {
+        padding: 40px 30px;
+    }
+    .about .contentBx
+    {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .post .contentBx
+    {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .post .contentBx .postcolumn .postBox,
+    .post .contentBx .postcolumn .postBox.extraheight
+    {
+        height: 300px;
+    }
+    .contact .contactform .row
+    {
+        grid-template-columns: repeat(1,1fr);
+    }
+    footer
+    {
+        padding: 40px 20px;
+    }
+    footer .footermenu
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+    }
+    footer .footermenu li a
+    {
+        margin: 5px 0;
+    }
+    .title
+    {
+        padding-top: 50px;
+    }
+    .mgt60
+    {
+        margin-top: 0;
+    }
+}
